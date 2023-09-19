@@ -34,10 +34,10 @@ class GameSystem(object):
             #show the game's title, and some credits!
             libtcod.console_set_default_foreground(0, color('gold'))
             libtcod.console_set_alignment(0, libtcod.CENTER)
-            libtcod.console_print(0, SCREEN_WIDTH/2, 3,  GAME_TITLE.upper())
-            libtcod.console_print(0, SCREEN_WIDTH/2, 4,  'v. {0}'.format(GAME_VERSION))
-            libtcod.console_print(0, SCREEN_WIDTH/2, SCREEN_HEIGHT - 4, 'by ZasVid')
-            libtcod.console_print(0, SCREEN_WIDTH/2, SCREEN_HEIGHT - 3, AUTHOR_EMAIL)
+            libtcod.console_print(0, SCREEN_WIDTH//2, 3,  GAME_TITLE.upper())
+            libtcod.console_print(0, SCREEN_WIDTH//2, 4,  'v. {0}'.format(GAME_VERSION))
+            libtcod.console_print(0, SCREEN_WIDTH//2, SCREEN_HEIGHT - 4, 'by ZasVid')
+            libtcod.console_print(0, SCREEN_WIDTH//2, SCREEN_HEIGHT - 3, AUTHOR_EMAIL)
             #show options and wait for the player's choice
             #choice = self.ui.menu('', [('Instructions','i'), ('Play a new game', 'p'), ('Continue last game','c'), ('Quit','q')], 24, indexing = UI.MENU_CUSTOM_INDEX)
             choice = self.ui.menu('', [('[C]redits', 'c'),

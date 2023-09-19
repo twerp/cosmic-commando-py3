@@ -178,7 +178,7 @@ class BoardGenerator(object):
                         'star class O': 1, 'star class B': 2, 'star class A': 3,
                         'star class F': 4, 'star class G': 5, 'star class K': 6,'star class M': 7,
                                  })
-        airlock = random_int(self.board.height/2 - 4,self.board.height/2 + 4)
+        airlock = random_int(self.board.height//2 - 4,self.board.height//2 + 4)
         self.rooms.append(Rect(1,airlock, 1,airlock))
         for asteroid in populate_asteroid_field(6,0,self.board.width - 5, self.board.height - 1,150):
             for x,y in asteroid:
@@ -187,7 +187,7 @@ class BoardGenerator(object):
         #create_spaceship(1,self.board.height/2 - 5, 10,self.board.height/2 + 5, None)
         target_coords = create_spaceship(self.board.width - 5, random_int(5, self.board.height - 6), 
                          [[0,0,0,0,1],[0,0,0,1,1],[0,0,1,1,1],[0,1,1,1,1],[1,1,0,1,1]], 'Blue Crow')
-        for y in range(self.board.height/2 - 5, self.board.height/2 + 6):
+        for y in range(self.board.height//2 - 5, self.board.height//2 + 6):
             self.board[0,y].feature = new_feature('spaceship hull')
         headstart_x, headstart_y, trajectory = compute_trajectory(1, airlock, target_coords)
         self.board[headstart_x, headstart_y].occupant = new_agent('Space Pirate Captain Bluesteel')

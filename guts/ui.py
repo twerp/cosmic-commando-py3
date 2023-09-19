@@ -139,7 +139,7 @@ class UI(object):
             libtcod.console_rect(self.hud, x, y, bar_width, 1, False, libtcod.BKGND_SET)
         #finally, some centered text with the values
         libtcod.console_set_default_foreground(self.hud, color(text_color))
-        text_x_adjust = (total_width / 2) if centered else 0
+        text_x_adjust = (total_width // 2) if centered else 0
         libtcod.console_print(self.hud, x + text_x_adjust, y,
                                     "{0}{1}".format(name, ": {0}/{1}".format(value, maximum) if display_numbers else ''))
                                      
@@ -371,8 +371,8 @@ class UI(object):
                 margin_bar = '-' * (width/2 - 1 - len(scroll_help_message)/2)
                 libtcod.console_print(window, 0 , min(y, height - 1), '*' + margin_bar + scroll_help_message + margin_bar + '*')
             #blit the contents of "window" to the root console
-            blit_x = SCREEN_WIDTH/2 - width/2
-            blit_y = max(SCREEN_HEIGHT/2 - height/2 - 1, 0)
+            blit_x = SCREEN_WIDTH//2 - width//2
+            blit_y = max(SCREEN_HEIGHT//2 - height//2 - 1, 0)
             bg_transparency = 1.0 if total_item_height > max_item_height else 0.7
             libtcod.console_blit(window, 0, 0, width, height, 0, blit_x, blit_y, 1.0, bg_transparency)
             #present the root console to the player and wait for a key-press
