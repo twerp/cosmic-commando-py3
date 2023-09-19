@@ -251,12 +251,12 @@ class Agent(Piece):
             #TODO: this probably could be written in one lambda function
             mod_x, mod_y = 0,0
             if abs(dx) == abs(dy):
-                mod_x = dx/abs(dx)
-                mod_y = dy/abs(dy)
+                mod_x = dx//abs(dx)
+                mod_y = dy//abs(dy)
             elif abs(dx) > abs(dy):
-                mod_x = dx/abs(dx)
+                mod_x = dx//abs(dx)
             else:
-                mod_y = dy/abs(dy)
+                mod_y = dy//abs(dy)
             final_x, final_y = board.adjust_to_bounds(x + mod_x, y + mod_y)
             return [(final_x, final_y)] + velocity_vector(final_x, final_y, dx - mod_x, dy - mod_y, board)
         vx, vy = self['velocity']

@@ -59,8 +59,8 @@ class UI(object):
         (self.camera_x, self.camera_y) = (x, y)
 
     def center_camera(self, x, y):
-        centered_x = x - CAMERA_WIDTH / 2  #coordinates so that the target is at the center of the screen
-        centered_y = y - CAMERA_HEIGHT / 2
+        centered_x = x - CAMERA_WIDTH // 2  #coordinates so that the target is at the center of the screen
+        centered_y = y - CAMERA_HEIGHT // 2
         self._set_camera_to(centered_x, centered_y)
     
     def move_camera(self, dx, dy):

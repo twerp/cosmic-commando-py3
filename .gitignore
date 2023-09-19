@@ -1,3 +1,4 @@
 debug.txt
 *.pyc
 env/
+savegame.*
