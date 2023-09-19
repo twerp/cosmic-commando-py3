@@ -3,7 +3,7 @@ This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sik
 '''
 
 import os
-from . import libtcodpy as libtcod
+from tcod import libtcodpy as libtcod
 from guts.messages import message, infotip
 import guts.grammar as grammar
 from guts.debug import debug

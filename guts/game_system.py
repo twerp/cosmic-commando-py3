@@ -3,7 +3,7 @@
 This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sikora; see CosmicCommando.py for full notice.
 '''
 
-from . import libtcodpy as libtcod
+from tcod import libtcodpy as libtcod
 import os
 from .config import *
 from .ui import UI

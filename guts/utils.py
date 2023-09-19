@@ -3,7 +3,7 @@ This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sik
 '''
 
 from guts.debug import debug
-from .libtcodpy import random_get_int
+from tcod.libtcodpy import random_get_int
 from random import shuffle
 
 def random_int(min_int, max_int):

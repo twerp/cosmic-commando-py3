@@ -2,7 +2,7 @@
 This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sikora; see CosmicCommando.py for full notice.
 '''
 
-from . import libtcodpy as _
+from tcod import libtcodpy as _
 
 fov_algorithms = {
    'basic': _.FOV_BASIC,

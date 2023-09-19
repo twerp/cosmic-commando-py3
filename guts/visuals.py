@@ -2,7 +2,7 @@
 This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sikora; see CosmicCommando.py for full notice.
 '''
 
-from . import libtcodpy as libtcod
+from tcod import libtcodpy as libtcod
 from .debug import debug
 
 default_color = libtcod.Color(0xff, 0x69, 0xb4) # hot pink ;)

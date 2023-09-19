@@ -4,7 +4,7 @@ This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sik
 
 from .game_pieces import *
 from .game_tileboard import *
-from . import libtcodpy as libtcod
+from tcod import libtcodpy as libtcod
 from .utils import *
 from guts.game_piece_defs import *
 from guts.game_quests import Objective

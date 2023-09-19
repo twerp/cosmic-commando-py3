@@ -7,7 +7,7 @@ from guts.config import *
 from guts.visuals import shape, color
 from guts.game_data import game
 from guts.game_agents import item_action_types
-import guts.libtcodpy as libtcod
+from tcod import libtcodpy as libtcod
 from guts.debug import debug
 from guts.libtcod_tables import _special_keys
 from guts.player_input import input_manager
