@@ -3,7 +3,7 @@ This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sik
 '''
 
 import os
-import libtcodpy as libtcod
+from . import libtcodpy as libtcod
 from guts.messages import message, infotip
 import guts.grammar as grammar
 from guts.debug import debug
@@ -308,7 +308,7 @@ class GamePlay(object):
                     quests_completed = sum([1 for quest in game.quests if quest.is_completed()])
                     score = quests_completed
                     if quests_completed >= 3:
-                        for choice in game.choices.keys():
+                        for choice in list(game.choices.keys()):
                             if choice != "Raven's Nest" and not game.choices[choice]:
                                 score += 1
                         if game.state == 'victory':
@@ -510,7 +510,7 @@ class GamePlay(object):
             center_on_player = True
             if player_action.startswith("DEBUG:") and debug.active:
                 if player_action == 'DEBUG: CHANGE FOV ALGORITHM':
-                    choices = fov_algorithms.keys()
+                    choices = list(fov_algorithms.keys())
                     index = self.ui.menu('Select fov algorithm:', choices)
                     if index is not None:
                         GameSettings.FOV_ALGO = fov_algorithms[choices[index]]
@@ -531,7 +531,7 @@ class GamePlay(object):
                 infotip('Version: {0}'.format(GAME_VERSION), 'ui text')
             elif player_action == 'DISPLAY KILL LIST':
                 kill_list = []
-                for kill, killcount in game.kill_list.items():
+                for kill, killcount in list(game.kill_list.items()):
                     if killcount > 0:
                         kill_list.append("{0} {1}{2}".format(killcount, kill, 's' if killcount > 1 else ''))
                 self.ui.listbox('Kill list:', kill_list, width = INFO_WIDTH)
@@ -546,7 +546,7 @@ class GamePlay(object):
                     self.ui.msgbox(input_manager.describe_keybindings())
                 elif player_action == 'QUEST LOG':
                     objective_list = []
-                    for objective in game.current_quest.objectives.values():
+                    for objective in list(game.current_quest.objectives.values()):
                         objective_text = objective.description
                         objective_text += '.' if objective.repeats == 1 else ': {0}/{1}'.format(objective.accomplished, objective.repeats)
                         objective_color = 'objective '+ objective.status

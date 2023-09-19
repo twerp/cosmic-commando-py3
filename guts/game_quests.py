@@ -192,7 +192,7 @@ class Quest(object):
     def _set_status(self, value):
         self._status = value
         if value == self.__class__.CURRENT:
-            for objective in [objective for objective in self.objectives.values() if objective.status == 'available']:
+            for objective in [objective for objective in list(self.objectives.values()) if objective.status == 'available']:
                 objective.set_progress_threshold()
     status = property(_get_status, _set_status)
         
@@ -208,7 +208,7 @@ class Quest(object):
     
     def is_finished(self):
         incomplete = False
-        for objective in self.objectives.values():
+        for objective in list(self.objectives.values()):
             if objective.is_negative() and objective.is_fulfilled() and not objective.is_optional():
                 self._successful = False
                 return True
@@ -228,7 +228,7 @@ class Quest(object):
                 self.fail()
     
     def update_availability_of_objectives(self):
-        for objective in self.objectives.values():
+        for objective in list(self.objectives.values()):
             if objective.prereqs and not objective.is_available():
                 make_available = True
                 for objective_id in objective.prereqs:
@@ -244,7 +244,7 @@ class Quest(object):
                 
     def progress_objectives(self):
         progress = False
-        for objective in [objective for objective in self.objectives.values() if objective.status == 'available']:
+        for objective in [objective for objective in list(self.objectives.values()) if objective.status == 'available']:
             if objective.check_progress():
                 progress = True 
         if progress:

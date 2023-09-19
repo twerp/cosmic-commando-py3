@@ -3,7 +3,7 @@ This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sik
 '''
 
 from guts.debug import debug
-from libtcodpy import random_get_int
+from .libtcodpy import random_get_int
 from random import shuffle
 
 def random_int(min_int, max_int):
@@ -50,8 +50,8 @@ def random_choice(elements):
     return elements[random_nat(len(elements) - 1)]
 
 def random_weighted_choice(chances_dict):
-    weights = chances_dict.values()
-    names = chances_dict.keys()
+    weights = list(chances_dict.values())
+    names = list(chances_dict.keys())
     total_weight = sum(weights)
     assert total_weight > 0, "Can't return random choice: all chances are 0."
     #the dice will land on some number between 1 and the total weight
@@ -84,7 +84,7 @@ directions = {"west" : (-1,0), "east" : (1,0), "north" : (0,-1), "south" : (0,1)
               }
 
 def orientation(direction):
-    if isinstance(direction, basestring):
+    if isinstance(direction, str):
         diagonal = len(direction) == 2 or len(direction) > 6 
     else:
         diagonal = abs(direction[0]) + abs(direction[1]) == 2

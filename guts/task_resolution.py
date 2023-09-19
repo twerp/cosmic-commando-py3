@@ -2,7 +2,7 @@
 This code is part of NightmareTyrant; Copyright (C) 2013 Piotr 'ZasVid' Sikora; see NightmareTyrant.py for full notice.
 '''
 
-from utils import random_nat
+from .utils import random_nat
 from collections import defaultdict
 
 traits = ['health', 'stamina', 'special equipment', 'defense', 'skill', 'attitude', 'luck',  'confidence']
@@ -145,7 +145,7 @@ def resolve_task(attitude, ability, luck, resistance):
             'luck' : luck * 2,
             'resistance' : resistance * 2
             }
-    for die_type in dice_tables.keys():
+    for die_type in list(dice_tables.keys()):
         die_roll = random_nat(9) + die_mods[die_type]
         successes += dice_tables[die_type][die_roll][0]
         advantages += dice_tables[die_type][die_roll][1]

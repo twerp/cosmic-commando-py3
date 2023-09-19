@@ -2,8 +2,8 @@
 This code is part of Cosmic Commando; Copyright (C) 2012-2013-2013 Piotr 'ZasVid' Sikora; see CosmicCommando.py for full notice.
 '''
 
-import libtcodpy as libtcod
-from game_data import game
+from . import libtcodpy as libtcod
+from .game_data import game
 
 def distance(piece_from, piece_to):
     return _distance(piece_from.x, piece_from.y, piece_to.x, piece_to.y)

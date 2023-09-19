@@ -3,7 +3,7 @@ This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sik
 '''
 
 from os import sep
-import ConfigParser
+import configparser
 
 class GameSettings(object):
     FOV_ALGO = 6  #TODO: make sure its FOV_PERMISSIVE_3 by using explicit const from libtcod
@@ -15,7 +15,7 @@ GAME_VERSION = '0.3'
 AUTHOR_EMAIL = "zasvid+roguelike@gmail.com"
 
 ASSET_DIR = 'assets'
-parser = ConfigParser.ConfigParser()
+parser = configparser.ConfigParser()
 parser.read('coscom.cfg')
 FONT = ASSET_DIR + sep + parser.get('main','font')
 SCREEN_WIDTH = parser.getint('screen','width')

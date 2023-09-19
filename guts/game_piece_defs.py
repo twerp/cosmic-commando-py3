@@ -5,8 +5,8 @@ This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sik
 from guts.game_pieces import Terrain, Feature, Item
 from guts.game_agents import Agent, Player, item_action_types
 from guts.actions import new_action
-from debug import debug
-from ai import *
+from .debug import debug
+from .ai import *
 
 piece_flags = ['blocking', 'blocks sight']
 agent_flags = ['dead']

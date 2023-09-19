@@ -3,14 +3,14 @@
 This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sikora; see CosmicCommando.py for full notice.
 '''
 
-import libtcodpy as libtcod
+from . import libtcodpy as libtcod
 import os
-from config import *
-from ui import UI
+from .config import *
+from .ui import UI
 from sys import exc_info
-from gameplay import GamePlay
-from achievements import Achievements
-from visuals import color
+from .gameplay import GamePlay
+from .achievements import Achievements
+from .visuals import color
 
 class GameSystem(object):
     '''

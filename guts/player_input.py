@@ -2,7 +2,7 @@
 This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sikora; see CosmicCommando.py for full notice.
 '''
 from collections import defaultdict
-from debug import debug
+from .debug import debug
 
 _default_inputs = {
         'escape' : 'QUIT',
@@ -103,7 +103,7 @@ class InputManager(object):
         return self._outputs[command] if list_all else (self._outputs[command][0] if self._outputs[command] else None)
     
     def _hardcode_inputs(self, inputs):
-        for keystr, action in inputs.items():
+        for keystr, action in list(inputs.items()):
             self.add_command(keystr, action)
 
     def get_command(self):

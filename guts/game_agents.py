@@ -195,7 +195,7 @@ class Agent(Piece):
 
     def receive(self, item):
         if item.flag('stacks') and item['type'] in [inv_item['type'] for inv_item in self.inventory]:
-            item_stack = filter(lambda f_item : f_item['type'] == item['type'], self.inventory)[0]
+            item_stack = [f_item for f_item in self.inventory if f_item['type'] == item['type']][0]
             item_stack['stack'] += item['stack']
         else:
             self.inventory.append(item)
@@ -217,7 +217,7 @@ class Agent(Piece):
             for inv_item in self.inventory:
                 if action_type in inv_item and inv_item not in items_to_remove:
                     items_to_equip.append(inv_item)
-            if self[action_type + ' item'] in filter(None, items_to_remove):
+            if self[action_type + ' item'] in [_f for _f in items_to_remove if _f]:
                 #TODO: this code only works for Blaster Buzzard specifically, otherwise it can break item slottage
                 if len(items_to_equip)!=1:
                     self[action_type + ' item'] = None 
@@ -225,7 +225,7 @@ class Agent(Piece):
                     self[action_type + ' item'] = items_to_equip[0]
                     message("{0} equip{1} {2}.".format(self.name, '' if self.is_player() else 's', describe_item(items_to_equip[0])), 'positive')
         if not silently:
-            for equipped_item in filter(None, items_to_remove):
+            for equipped_item in [_f for _f in items_to_remove if _f]:
                 message("{0} unequip{1} {2}.".format(self.name, '' if self.is_player() else 's', describe_item(equipped_item)), 'negative')
         #TODO: apply passive effects
 

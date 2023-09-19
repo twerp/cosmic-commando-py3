@@ -2,8 +2,8 @@
 This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sikora; see CosmicCommando.py for full notice.
 '''
 
-from config import MSG_WIDTH
-from game_data import game
+from .config import MSG_WIDTH
+from .game_data import game
 import textwrap
 import guts.grammar as grammar
 

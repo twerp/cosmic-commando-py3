@@ -63,8 +63,8 @@ class Board(object):
         top = top if y - top >= 0 else y
         bottom = bottom if y + bottom < self.height else self.height - y - 1  
         tiles = [] 
-        for xx in xrange(x - left, x + right + 1):
-            for yy in xrange(y - top, y + bottom + 1):
+        for xx in range(x - left, x + right + 1):
+            for yy in range(y - top, y + bottom + 1):
                 tiles.append(self[xx,yy])
         for excluded_tile in excluded:
             if excluded_tile in tiles:

@@ -2,10 +2,10 @@
 This code is part of Cosmic Commando; Copyright (C) 2012-2013 Piotr 'ZasVid' Sikora; see CosmicCommando.py for full notice.
 '''
 
-from game_pieces import *
-from game_tileboard import *
-import libtcodpy as libtcod
-from utils import *
+from .game_pieces import *
+from .game_tileboard import *
+from . import libtcodpy as libtcod
+from .utils import *
 from guts.game_piece_defs import *
 from guts.game_quests import Objective
 from guts.debug import debug
@@ -485,7 +485,7 @@ class BoardGenerator(object):
                 return True
             if n < min_part:
                 return False
-            for i in xrange(min_part, max_part + 1):
+            for i in range(min_part, max_part + 1):
                 if has_partition(n - i, min_part, max_part):
                     return True
         inner_room_y = inner_y
@@ -559,7 +559,7 @@ class BoardGenerator(object):
             #"Rect" class makes rectangles easier to work with
             new_room = Rect(x, y, w, h)
             if x + w >= self.board.width or y + h >= self.board.height: 
-                print(x,y,w,h)
+                print((x,y,w,h))
             #run through the other rooms and see if they intersect with this one
             failed = False
             for other_room in self.rooms:

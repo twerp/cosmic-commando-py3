@@ -175,7 +175,7 @@ class UI(object):
         objectives_descs = []
         if game.current_quest is not None:
             y += self.print_rectangle(self.hud, 1, y, MSG_WIDTH, HUD_HEIGHT - y, game.current_quest.description, 'ui text')
-            for objective in game.current_quest.objectives.values():
+            for objective in list(game.current_quest.objectives.values()):
                 if objective.is_available():
                     if objective.is_fulfilled():
                         objective_color = 'failure' if objective.is_negative() else 'completed quest'
